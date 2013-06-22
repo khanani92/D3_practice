@@ -16,10 +16,11 @@
 var dataSet = [10,20,30,40,50];
 var pie = d3.layout.pie();
 var a = pie(dataSet);
+
 var color = d3.scale.category20c();
 
-var width = 400;//custom widht
-var height = 400;//custom height
+var width = 400;//custom widht for chart
+var height = 400;//custom height for chart
 
 var outerRadius = width/2; //custom
 var innerRadius = 0;//custom
@@ -27,6 +28,9 @@ var innerRadius = 0;//custom
 var arc = d3.svg.arc()
                 .outerRadius(outerRadius)
                 .innerRadius(innerRadius);
+
+
+
 
 //set up Group
 var arcs = svg.selectAll("g.arc")//g with class arc
@@ -36,10 +40,13 @@ var arcs = svg.selectAll("g.arc")//g with class arc
               .attr("class","arc")
               .attr("transform","translate("+outerRadius+","+outerRadius+")");
 
+
 //Draw arc path
 arcs.append("path")
     .attr("fill",function(d,i){return color(i);   })
     .attr("d",arc);
+
+
 
 //adding text
 arcs.append("text")
