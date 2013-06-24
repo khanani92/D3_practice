@@ -64,7 +64,7 @@ var force = d3.layout.force()
     .links(dataSet.edges)
     .size([w, h])
     .linkDistance([50])
-    .charge([-100])
+    .charge([-1000])
     .start();
 
 
